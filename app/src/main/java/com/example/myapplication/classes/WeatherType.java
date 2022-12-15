@@ -15,4 +15,11 @@ public class WeatherType {
     public String getMain() {
         return main;
     }
+
+    @Override
+    public String toString() {
+        return
+                " " + main;
+
+    }
 }

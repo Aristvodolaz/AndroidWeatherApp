@@ -1,7 +1,9 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.SQLException;
@@ -11,11 +13,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.DBase.ForecastContract;
 import com.example.myapplication.DBase.ForecastDbHelper;
 import com.example.myapplication.classes.ForecastArea;
 import com.example.myapplication.classes.ForecastLoc;
+import com.example.myapplication.classes.WeatherType;
 import com.example.myapplication.tools.RemoteFetch;
 import com.example.myapplication.tools.Utilites;
 import com.google.android.gms.maps.CameraUpdate;
@@ -27,6 +31,7 @@ import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.HashMap;
@@ -38,8 +43,10 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-
+import com.example.myapplication.classes.WeatherMain;
 import static com.example.myapplication.R.id.map;
+import static com.example.myapplication.R.id.weatherName;
+
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback,
         GoogleMap.OnCameraMoveStartedListener, GoogleMap.OnCameraIdleListener, View.OnClickListener {
 
@@ -182,9 +189,18 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     mMarkerOptions.get(fCastName).icon(iconImg);
                 }
                 else {
+
                     MarkerOptions marker = new MarkerOptions().position(pos).title(titleForecast).icon(iconImg);
                     mMarkerOptions.put(fCastName, marker);
                     googleMap.addMarker(marker);
+                    googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                        @SuppressLint("ResourceType")
+                        @Override
+                        public boolean onMarkerClick(@NonNull Marker marker) {
+                            Toast.makeText(mMapFragment.getActivity().getApplicationContext(),forecast.toString(),  Toast.LENGTH_LONG).show();
+                       return false;
+                        }
+                    });
                 }
             }
             Log.d("MAPNot", "-");

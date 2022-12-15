@@ -3,6 +3,7 @@ package com.example.myapplication.classes;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+import java.util.Locale;
 
 public class ForecastLoc {
     private String name;
@@ -40,4 +41,15 @@ public class ForecastLoc {
     }
 
     public long getTime() { return time; }
+
+
+    @Override
+    public String toString() {
+
+        return
+                "City: " + getName()+ "\nTemerature: " + getMain() +
+                "\nWeather now: " + getWeather().toString().toLowerCase(Locale.ROOT).replaceAll("^\\[|\\]$", "")
+                ;
+    }
 }
+

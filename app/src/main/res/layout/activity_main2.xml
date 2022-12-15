@@ -13,7 +13,7 @@
         android:layout_width="195dp"
         android:layout_height="47dp"
         android:text="BACK TO MAP"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="450dp"
         android:layout_marginLeft="195dp"
         />
 
@@ -22,7 +22,7 @@
         android:layout_width="195dp"
         android:layout_height="47dp"
         android:text="WINDOW"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="450dp"
          />
 
     <androidx.recyclerview.widget.RecyclerView

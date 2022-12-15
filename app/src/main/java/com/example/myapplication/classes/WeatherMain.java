@@ -6,8 +6,16 @@ public class WeatherMain {
         temp = temperature;
     }
 
+
     public double getTemp() {
         return temp;
     }
 
+
+    @Override
+    public String toString() {
+        return
+                " " + temp;
+
+    }
 }
