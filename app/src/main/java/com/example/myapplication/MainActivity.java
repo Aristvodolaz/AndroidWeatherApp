@@ -45,12 +45,10 @@ import rx.schedulers.Schedulers;
 
 import com.example.myapplication.classes.WeatherMain;
 import static com.example.myapplication.R.id.map;
-import static com.example.myapplication.R.id.weatherName;
+
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback,
         GoogleMap.OnCameraMoveStartedListener, GoogleMap.OnCameraIdleListener, View.OnClickListener {
-
-
 
 
         private Button button;
@@ -172,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
         private void drawMarkers (List<ForecastLoc> listForecasts) {
-            //List<ForecastLoc> listForecasts = mForecastArea.getList();
+
 
             for(ForecastLoc forecast: listForecasts) {
 

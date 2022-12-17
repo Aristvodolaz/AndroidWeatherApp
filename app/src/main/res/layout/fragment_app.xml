@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.AppFragment">
+
+    <TextView
+        android:layout_width="331dp"
+        android:layout_height="445dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="This is an application created to track the weather in various cities around the world.
+In order to get information about the weather, just click on the icon that visualizes the weather in a given city at a given hour."
+        android:textSize="40px" />
+
+</RelativeLayout>

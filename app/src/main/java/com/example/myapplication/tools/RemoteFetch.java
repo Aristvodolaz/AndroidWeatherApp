@@ -5,9 +5,16 @@ package com.example.myapplication.tools;
 import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.myapplication.DBase.ForecastContract;
+import com.example.myapplication.MyAdapter;
 import com.example.myapplication.OpenWeatherClient;
 import com.example.myapplication.classes.Coord;
 import com.example.myapplication.classes.ForecastArea;
@@ -27,7 +34,23 @@ import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 import rx.subjects.BehaviorSubject;
 
-public class RemoteFetch {
+import com.example.myapplication.R;
+
+public class RemoteFetch extends AppCompatActivity {
+RecyclerView recyclerView;
+    ArrayList<ForecastLoc> forecasts ;
+MyAdapter adapter = new MyAdapter(forecasts);
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_history);
+
+        recyclerView = (RecyclerView) findViewById(R.id.rv);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+    }
+
     private static final String OPEN_WEATHER_BULK_API = "http://api.openweathermap.org/data/2.5/box/city?bbox=";
     private static final String OPEN_WEATHER_BASE_URL = "http://api.openweathermap.org/";
     private static final String OPEN_WEATHER_API_KEY = "7e39bf2aa01fb82aa7de51598487ff9c";
@@ -154,6 +177,8 @@ public class RemoteFetch {
         cursor.close();
 
         return Observable.just(forecastArea);
+
+
     }
 
 

@@ -24,6 +24,7 @@ public class ForecastLoc {
         time = timeCreated;
     }
 
+
     public String getName() {
         return name;
     }

@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class ForecastDbHelper extends SQLiteOpenHelper{
+
     private static final String DATABASE_NAME = "forecasts.db";
 
     private static final int DATABASE_VERSION = 3;

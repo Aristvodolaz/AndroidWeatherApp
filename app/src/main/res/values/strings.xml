@@ -3,5 +3,7 @@
     <string name="history_press_city">History press city</string>
     <string name="default_text">Default Text</string>
     <string name="button">Button</string>
-    <string name="info">information information information information information information information information information information information information nformation information information information information</string>
+<string name="about_app">This is an application created to track the weather in various cities around the world.
+In order to get information about the weather, just click on the icon that visualizes the weather in a given city at a given hour.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
